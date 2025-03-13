@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      <a routerLink="/home" style="text-decoration: none; color: inherit;">Sistema de Gestión</a>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/users" fill="clear">Usuarios</ion-button>
+      <ion-button routerLink="/tutors" fill="clear">Tutores</ion-button>
+      <ion-button routerLink="/bookings" fill="clear">Reservas</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="welcome-section">
+    <h1>Bienvenido al Sistema de Gestión</h1>
+    <p>Gestiona usuarios, tutores y reservas de manera eficiente.</p>
+    <ion-button routerLink="/users" expand="block" color="success">Comenzar</ion-button>
+  </div>
+
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="12" size-md="4">
+        <ion-card class="feature-card">
+          <ion-card-header>
+            <ion-icon name="people" class="feature-icon"></ion-icon>
+            <ion-card-title>Usuarios</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Gestiona los usuarios del sistema, crea, edita o elimina registros.
+          </ion-card-content>
+          <ion-button routerLink="/users" expand="block" fill="clear">Ver más</ion-button>
+        </ion-card>
+      </ion-col>
+
+
+      <ion-col size="12" size-md="4">
+        <ion-card class="feature-card">
+          <ion-card-header>
+            <ion-icon name="school" class="feature-icon"></ion-icon>
+            <ion-card-title>Tutores</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Administra la información de los tutores y sus especialidades.
+          </ion-card-content>
+          <ion-button routerLink="/tutors" expand="block" fill="clear">Ver más</ion-button>
+        </ion-card>
+      </ion-col>
+
+
+      <ion-col size="12" size-md="4">
+        <ion-card class="feature-card">
+          <ion-card-header>
+            <ion-icon name="calendar" class="feature-icon"></ion-icon>
+            <ion-card-title>Reservas</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Controla las reservas de los usuarios con los tutores disponibles.
+          </ion-card-content>
+          <ion-button routerLink="/bookings" expand="block" fill="clear">Ver más</ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <div class="info-section">
+    <h2>¿Por qué elegir nuestro sistema?</h2>
+    <p>
+      Nuestra plataforma ofrece una solución integral para la gestión de usuarios, tutores y reservas.
+      Con una interfaz intuitiva y herramientas poderosas, simplificamos tu trabajo diario.
+    </p>
+  </div>
+</ion-content>

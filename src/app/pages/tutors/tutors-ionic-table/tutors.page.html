@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>TUTORES</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-padding">
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="12" size-md="8">
+        <h1>LISTA DE TUTORES</h1>
+      </ion-col>
+      <ion-col size="12" size-md="4" class="ion-text-end">
+        <ion-button (click)="openPopUp({}, true)" expand="block">
+          <ion-icon slot="start" name="add"></ion-icon>
+          Nuevo Tutor
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="header-row">
+      <ion-col size="2">ID</ion-col>
+      <ion-col size="3">Nombre</ion-col>
+      <ion-col size="2">Especialidad</ion-col>
+      <ion-col size="2">Contacto</ion-col>
+      <ion-col size="2">Estado</ion-col>
+      <ion-col size="1">Acciones</ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let tutor of dataSource" class="data-row">
+      <ion-col size="2">{{ tutor.id }}</ion-col>
+      <ion-col size="3">{{ tutor.first_name }} {{ tutor.last_name }}</ion-col>
+      <ion-col size="2">
+        <ion-chip [color]="getSpecialityColor(tutor.speciality)">
+          {{ tutor.speciality }}
+        </ion-chip>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-button fill="clear" (click)="openContact(tutor)">
+          <ion-icon name="call"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" (click)="openEmail(tutor)">
+          <ion-icon name="mail"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-chip [color]="tutor.status === 'active' ? 'success' : 'danger'">
+          {{ tutor.status | titlecase }}
+        </ion-chip>
+      </ion-col>
+
+      <ion-col size="1">
+        <ion-button fill="clear" (click)="openPopUp(tutor)">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" color="danger" (click)="deleteTutor(tutor)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center ion-padding">
+      <ion-button (click)="previousPage()" [disabled]="page === 1">
+        <ion-icon name="chevron-back"></ion-icon>
+      </ion-button>
+      <ion-label class="ion-padding">{{ page }}</ion-label>
+      <ion-button (click)="nextPage()">
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

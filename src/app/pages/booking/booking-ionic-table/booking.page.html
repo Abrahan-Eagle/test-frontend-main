@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>RESERVAS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-padding">
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="12" size-md="8">
+        <h1>LISTA DE RESERVAS</h1>
+      </ion-col>
+      <ion-col size="12" size-md="4" class="ion-text-end">
+        <ion-button (click)="openPopUp({}, true)" expand="block">
+          <ion-icon slot="start" name="add"></ion-icon>
+          Nueva Reserva
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="header-row">
+      <ion-col size="2">ID</ion-col>
+      <ion-col size="2">Fecha</ion-col>
+      <ion-col size="2">Hora Inicio</ion-col>
+      <ion-col size="2">Hora Fin</ion-col>
+      <ion-col size="2">Usuario</ion-col>
+      <ion-col size="2">Tutor</ion-col>
+      <ion-col size="2">Acciones</ion-col>
+    </ion-row>
+
+
+    <ion-row *ngFor="let booking of dataSource" class="data-row">
+      <ion-col size="2">{{ booking.id }}</ion-col>
+      <ion-col size="2">{{ booking.date }}</ion-col>
+      <ion-col size="2">{{ booking.start_time }}</ion-col>
+      <ion-col size="2">{{ booking.end_time }}</ion-col>
+      <ion-col size="2">{{ booking.user.first_name }} {{ booking.user.last_name }}</ion-col>
+      <ion-col size="2">{{ booking.staff.first_name }} {{ booking.staff.last_name }}</ion-col>
+      <ion-col size="2">
+
+        <ion-button fill="clear" (click)="openPopUp(booking)">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" color="danger" (click)="deleteBooking(booking)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="ion-justify-content-center ion-padding">
+      <ion-button (click)="previousPage()" [disabled]="page === 1">
+        <ion-icon name="chevron-back"></ion-icon>
+      </ion-button>
+      <ion-label class="ion-padding">{{ page }}</ion-label>
+      <ion-button (click)="nextPage()">
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
