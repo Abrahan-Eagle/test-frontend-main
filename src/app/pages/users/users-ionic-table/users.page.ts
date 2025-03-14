@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController, LoadingController } from '@ionic/angular';
-import { UserService } from './../users.service'; // Asegúrate de que la ruta del servicio sea correcta
+import { UserService } from './../users.service';
 
 @Component({
   selector: 'app-user',
